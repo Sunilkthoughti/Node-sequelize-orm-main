@@ -6,7 +6,7 @@ const handleError = (err, res) => {
     console.error(err);
 
     res.status(500).json({
-        message: err.message
+        message: "validation fail",
     })
 }
 
@@ -41,6 +41,7 @@ controller.update = async (req, res) => {
         handleError(err, res);
     }
 };
+
 
 controller.getAll = async (req, res) => {
     try {

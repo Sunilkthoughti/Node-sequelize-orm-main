@@ -7,10 +7,12 @@ const db = require('./models');
 app.use(bodyParser.json());
 
 app.use('/users', require('./routes/user'));
-// app.use('/students', require('./routes/student'));
+
 
 db.sequelize
-    .sync()
+    .sync({
+        force: true
+    })
     .then(() => {
         console.log('Connected to DB');
         app.listen(4000, () => console.log('Server listening to PORT 4000'))

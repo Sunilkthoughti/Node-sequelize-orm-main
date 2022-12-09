@@ -5,20 +5,29 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        firstName: {
+        first_Name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        lastName: {
+        last_Name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull:false,
+            unique:true,
+            validate: {
+                notEmpty: true
+            }
+        },
+        
         age: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -30,3 +39,4 @@ module.exports = (sequelize, DataTypes) => {
 
     return User;
 };
+
