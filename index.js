@@ -1,12 +1,15 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+const dotEnv = require('dotenv');
+dotEnv.config();
 const db = require('./models');
 // const db = require('./routes/student');
 
 app.use(bodyParser.json());
 
 app.use('/users', require('./routes/user'));
+app.use('/student', require('./routes/student'));
 
 
 db.sequelize
